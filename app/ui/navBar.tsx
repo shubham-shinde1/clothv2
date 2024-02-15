@@ -1,3 +1,4 @@
+"use client";
 import {
   Avatar,
   Dropdown,
@@ -8,10 +9,13 @@ import {
   NavbarBrand,
   NavbarCollapse,
   NavbarLink,
-  NavbarToggle,
+  NavbarToggle
 } from "flowbite-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function FlowByteNavBar() {
+  const pathname = usePathname();
   return (
     <Navbar fluid rounded>
       <NavbarBrand href="#">
@@ -51,13 +55,27 @@ export default function FlowByteNavBar() {
         <NavbarToggle />
       </div>
       <NavbarCollapse>
-        <NavbarLink href="#" active>
+        <Link
+          href="/"
+          className={`link ${pathname === "/" ? "text-blue-400" : ""} `}
+        >
           Home
-        </NavbarLink>
-        <NavbarLink href="#">About</NavbarLink>
+        </Link>
+        <Link
+          href="#"
+          className={`link ${pathname === "/#" ? "text-blue-400" : ""} `}
+        >
+          About
+        </Link>
         <NavbarLink href="#">Services</NavbarLink>
         <NavbarLink href="#">Pricing</NavbarLink>
-        <NavbarLink href="#">Contact</NavbarLink>
+
+        <Link
+          href="/faqs"
+          className={`link ${pathname === "/faqs" ? "text-blue-400" : ""} `}
+        >
+          Contact
+        </Link>
       </NavbarCollapse>
     </Navbar>
   );
