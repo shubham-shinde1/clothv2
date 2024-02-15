@@ -8,10 +8,10 @@ import {
 export default function FlowByteAccordion() {
   return (
     <>
-      <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight m-4 text-center text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+      <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight m-10 text-center text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
         Frequently Asked Questions
       </h1>
-      <Accordion collapseAll className=" w-4/5  mx-auto my-6">
+      <Accordion collapseAll className=" w-4/5  mx-auto my-10 mb-32">
         <AccordionPanel>
           <AccordionTitle>What is Flowbite?</AccordionTitle>
           <AccordionContent>

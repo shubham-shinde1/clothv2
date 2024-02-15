@@ -62,19 +62,26 @@ export default function FlowByteNavBar() {
           Home
         </Link>
         <Link
-          href="#"
-          className={`link ${pathname === "/#" ? "text-blue-400" : ""} `}
+          href="/aboutus"
+          className={`link ${pathname === "/aboutus" ? "text-blue-400" : ""} `}
         >
           About
         </Link>
-        <NavbarLink href="#">Services</NavbarLink>
+        <Link
+          href="/volunteer"
+          className={`link ${
+            pathname === "/volunteer" ? "text-blue-400" : ""
+          } `}
+        >
+          Volunteer
+        </Link>
         <NavbarLink href="#">Pricing</NavbarLink>
 
         <Link
           href="/faqs"
           className={`link ${pathname === "/faqs" ? "text-blue-400" : ""} `}
         >
-          Contact
+          FAQs
         </Link>
       </NavbarCollapse>
     </Navbar>
