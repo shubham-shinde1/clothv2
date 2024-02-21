@@ -4,7 +4,9 @@ export default function Donateitem() {
   const [item, setitem] = useState();
   const [itemQty, setItemQty] = useState(1);
 
-  const handelIncrement = () => {};
+  const handelIncrement = () => {
+    "test delte me";
+  };
 
   const handelDecrement = () => {};
 
