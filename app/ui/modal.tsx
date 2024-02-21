@@ -3,32 +3,30 @@
 import { Button, Modal } from "flowbite-react";
 import { useState } from "react";
 import useMultiStepForm from "../customHooks/useMultiStepForm";
-import WelcomeStep from "../ui/formSteps/welcomeStep";
-import ItemSelectionStep from "../ui/formSteps/itemSelectionStep";
+import WelcomeStep from "./formSteps/locationStep";
+import HowStep from "./formSteps/howStep";
+import DonationForm from "./formSteps/donateitem";
 
 export default function FlowByteModal() {
   const [openModal, setOpenModal] = useState(false);
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
-    useMultiStepForm([
-      <WelcomeStep />,
-      <ItemSelectionStep />,
-      <div>3</div>,
-      <div>4</div>,
-    ]);
+    useMultiStepForm([<WelcomeStep />, <HowStep />, <DonationForm/>]);
 
   return (
     <>
       <Button onClick={() => setOpenModal(true)}>Schedule Pickup</Button>
+
       <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
         <div
           style={{
             position: "relative",
             background: "white",
-            border: "1px solid black",
+            border: "1px solid red",
             padding: "2rem",
             margin: "1rem",
             borderRadius: ".5rem",
-            fontFamily: "Arial",
+            // fontFamily: "Arial",
+            // width: "80vw"
           }}
         >
           <form>
@@ -55,29 +53,6 @@ export default function FlowByteModal() {
             </div>
           </form>
         </div>
-        {/* <Modal.Header>Terms of Service</Modal.Header>
-        <Modal.Body>
-          <div className="space-y-6">
-            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              With less than a month to go before the European Union enacts new
-              consumer privacy laws for its citizens, companies around the world
-              are updating their terms of service agreements to comply.
-            </p>
-            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              The European Union’s General Data Protection Regulation (G.D.P.R.)
-              goes into effect on May 25 and is meant to ensure a common set of
-              data rights in the European Union. It requires organizations to
-              notify users as soon as possible of high-risk data breaches that
-              could personally affect them.
-            </p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={() => setOpenModal(false)}>I accept</Button>
-          <Button color="gray" onClick={() => setOpenModal(false)}>
-            Decline
-          </Button>
-        </Modal.Footer> */}
       </Modal>
     </>
   );
